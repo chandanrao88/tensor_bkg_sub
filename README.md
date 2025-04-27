@@ -132,7 +132,7 @@ Key parameters in our implementation include:
 
 ### Dataset
 
-The "sofa" image sequence from the CDnet 2014 (Change Detection) dataset for background subtraction. The test included:
+The "streetLight" image sequence from the CDnet 2014 (Change Detection) dataset for background subtraction. The test included:
 * Initialization with 100 frames
 * Processing up to 800 frames
 * Color image processing with RGB channels
