@@ -5,13 +5,13 @@
 
 ## Abstract
 
-This report presents our implementation of a background subtraction algorithm using adaptive tensor singular value decomposition (SVD). We compare two tensor-product approaches: the T-product and M-product methods for efficient online updating of the background model. Our implementation processes video frames to separate foreground objects from the background, with experimental results showing comparative performance metrics between the two methods. We implemented the algorithm in both Python and MATLAB to validate our results.
+This report presents our implementation of a background subtraction algorithm using adaptive tensor singular value decomposition (SVD). We compare two tensor-product approaches: the T-product and M-product methods for efficient online updating of the background model. Our implementation processes video frames to separate foreground objects from the background, with experimental results showing comparative performance metrics between the two methods.
 
 ## Introduction
 
 Background subtraction is a fundamental technique in computer vision that aims to separate moving objects (foreground) from static scenes (background) in video sequences. Traditional approaches often use matrix-based methods, but tensor-based approaches offer advantages for multi-dimensional data processing.
 
-In this project, we implement an adaptive tensor SVD algorithm for background subtraction that:
+In this project, an adaptive tensor SVD algorithm has been implemened for background subtraction that:
 * Represents video frames as third-order tensors
 * Efficiently updates the background model using T-product and M-product methods
 * Adapts to gradually changing scenes by incrementally updating the tensor SVD
@@ -55,14 +55,14 @@ A = UΣVᵀ
 
 where U and V are orthogonal matrices, and Σ is a diagonal matrix of singular values.
 
-In our tensor-based approach, we extend these concepts to third-order tensors using two different tensor product definitions.
+In our tensor-based approach, these concepts can extend to third-order tensors using two different tensor product definitions.
 
 ### Tensor Representation
 
-We represent a video sequence as a third-order tensor where:
+A video sequence as is represeted as a third-order tensor where:
 * First two dimensions correspond to spatial coordinates (height × width)
 * Third dimension corresponds to time (frames)
-* For color videos, we process each channel separately
+* For color videos, processed each channel separately
 
 ### T-product Based Tensor SVD
 
@@ -109,7 +109,7 @@ where Bₜ is the background estimate at time t.
 
 ## Implementation
 
-We implemented our algorithm in Python using NumPy for tensor operations and OpenCV for image processing. The implementation consists of several key functions:
+The algorithm has been implemented in Python using NumPy for tensor operations and OpenCV for image processing. The implementation consists of several key functions:
 
 * `tsvd_comp` and `msvd_comp`: Compute T-product and M-product SVD respectively
 * `tsvd_append` and `msvd_append`: Update SVD components with new data
@@ -117,7 +117,7 @@ We implemented our algorithm in Python using NumPy for tensor operations and Ope
 * `TProd` and `MProd`: Compute T-product and M-product of tensors
 * `process_image_sequence`: Main pipeline for background subtraction
 
-We also created a validation implementation in MATLAB to verify our results and ensure correctness of both methods across different programming environments.
+Also created a validation implementation in MATLAB to verify our results and ensure correctness of both methods across different programming environments.
 
 ### Parameters
 
@@ -132,14 +132,14 @@ Key parameters in our implementation include:
 
 ### Dataset
 
-We used the "sofa" image sequence from the CDnet 2014 (Change Detection) dataset for background subtraction. The test included:
+The "sofa" image sequence from the CDnet 2014 (Change Detection) dataset for background subtraction. The test included:
 * Initialization with 100 frames
 * Processing up to 800 frames
 * Color image processing with RGB channels
 
 ### Performance Metrics
 
-We evaluated the performance using:
+Evaluated the performance using:
 * Structural Similarity Index (SSIM) between original and background
 * Peak Signal-to-Noise Ratio (PSNR) for background quality
 * Jaccard similarity between foreground masks
